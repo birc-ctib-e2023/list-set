@@ -21,3 +21,18 @@ class Set(Protocol[T]):
     def remove(self, x: T) -> None:
         """Remove x from the set."""
         ...
+
+
+class SetCons(Protocol):
+    """
+    Protocol for creating sets.
+
+    This is a bit of a hack to work around that mypy doesn't
+    work well with generic protocols.
+
+    See: https://github.com/python/typing/issues/1179
+    """
+
+    def __call__(self, it: Iterable[T]) -> Set[T]:
+        """Create a new set."""
+        ...

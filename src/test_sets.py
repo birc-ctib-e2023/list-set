@@ -1,13 +1,10 @@
 """Testing set implementations."""
 
-from typing import Callable, Iterable
-from interface import Set
-from listset import ListSet, T
-
-Cons = Callable[[Iterable[T]], Set[T]]
+from interface import SetCons
+from listset import ListSet
 
 
-def check_set(set_type: Cons) -> None:
+def check_set(set_type: SetCons) -> None:
     """Test that we have an implementation of a set."""
     x = list(range(10))
     s = set_type(x)
